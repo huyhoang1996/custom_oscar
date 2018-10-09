@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'compressor',
     'widget_tweaks',
     'main',
-    'core',
+    'core'
 ] + get_core_apps([
     'oscar_custom.catalogue',
     'oscar_custom.dashboard.catalogue',
@@ -203,9 +203,10 @@ OSCAR_DASHBOARD_NAVIGATION = [
         ]
     },
 ]
+# fix error register
+EMAIL_BACKEND =  'django.core.mail.backends.console.EmailBackend'
 
-
-# AUTH_USER_MODEL = "core.User"
+AUTH_USER_MODEL = "core.User"
 # AUTH_USER_MODEL_NAME = "core.User"
 
 

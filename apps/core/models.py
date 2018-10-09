@@ -37,13 +37,13 @@ class Payment_Plan(DateTimeModel):
     class Meta:
         verbose_name = _('Payment Plan')
 
+class User(AbstractUser):
 
-# class User(AbstractUser):
-#     phone = models.CharField(
-#         _('phone'), max_length=255, blank=True)
-
-#     class Meta:
-#         db_table = 'auth_user'
+    phone = models.CharField(
+        _('phone'), max_length=255, blank=True)
+    plan = models.ForeignKey('Payment_Plan', related_name='user_plan_rel', on_delete=models.CASCADE, null=True, blank=True)
+    # class Meta:
+    #     db_table = 'auth_user'
 
 
 
