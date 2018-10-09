@@ -44,7 +44,8 @@ INSTALLED_APPS = [
     'core',
 ] + get_core_apps([
     'oscar_custom.catalogue',
-    'oscar_custom.dashboard.catalogue'
+    'oscar_custom.dashboard.catalogue',
+    'oscar_custom.customer',
 ])
 
 SITE_ID = 1
@@ -52,6 +53,7 @@ SITE_ID = 1
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     # Allow languages to be selected
@@ -128,12 +130,12 @@ AUTHENTICATION_BACKENDS = (
     'django.contrib.auth.backends.ModelBackend',
 )
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'vi'
 # Includes all languages that have >50% coverage in Transifex
 # Taken from Django's default setting for LANGUAGES
 gettext_noop = lambda s: s
 LANGUAGES = (
-    ('en-us', gettext_noop('American English')),
+    ('en', gettext_noop('American English')),
     ('vi', gettext_noop('Vietnames')),
 )
 TIME_ZONE = 'UTC'
@@ -201,6 +203,11 @@ OSCAR_DASHBOARD_NAVIGATION = [
         ]
     },
 ]
+
+
+# AUTH_USER_MODEL = "core.User"
+# AUTH_USER_MODEL_NAME = "core.User"
+
 
 # Try and import local settings which can be used to override any of the above.
 try:

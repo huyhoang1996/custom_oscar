@@ -5,6 +5,7 @@ from django.db import models
 import datetime
 from django.utils.encoding import python_2_unicode_compatible
 from django.utils.translation import ugettext_lazy as _
+from oscar.apps.customer.abstract_models import AbstractUser
 
 # Create your models here.
 class DateTimeModel(models.Model):
@@ -35,3 +36,16 @@ class Payment_Plan(DateTimeModel):
 
     class Meta:
         verbose_name = _('Payment Plan')
+
+
+# class User(AbstractUser):
+#     phone = models.CharField(
+#         _('phone'), max_length=255, blank=True)
+
+#     class Meta:
+#         db_table = 'auth_user'
+
+
+
+
+
