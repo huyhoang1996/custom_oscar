@@ -6,7 +6,7 @@ from oscar.core.application import Application
 from oscar.core.loading import get_class
 from oscar.apps.customer.app import CustomerApplication as BaseCustomerApplication
 
-
+# change url profile
 class CustomerApplication(BaseCustomerApplication):
 
     def get_urls(self):

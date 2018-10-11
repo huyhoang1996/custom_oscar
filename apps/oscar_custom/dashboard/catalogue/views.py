@@ -16,10 +16,6 @@ class ProductCreateUpdateView(BaseProductCreateUpdateView):
         }
 
 
-class ProductListView(BaseProductListView):
-	table_class = ProductTable
-
-
 # cuatom button new product
 class ProductCreateRedirectView(BaseProductCreateRedirectView):
 
