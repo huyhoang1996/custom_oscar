@@ -35,5 +35,6 @@ if settings.DEBUG:
 
 urlpatterns +=i18n_patterns(
     url(r'', include(application.urls)),
+    url(r'^', include('core.urls')),
 
     )

@@ -10,6 +10,7 @@ class ProductCreateUpdateView(BaseProductCreateUpdateView):
     def __init__ (self, *args, **kwargs):
     	super(ProductCreateUpdateView, self).__init__(*args, **kwargs)
        	self.formsets = {
+            # 'category_formset': self.category_formset,
             'image_formset': self.image_formset,
             'recommended_formset': self.recommendations_formset,
             'stockrecord_formset': self.stockrecord_formset

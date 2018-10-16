@@ -14,6 +14,7 @@ class ProductForm(base_forms.ProductForm):
         product = super(ProductForm, self).save(commit=False)
         if commit:
             product.save()
+            # add category to product
             initial_category = self.initial.get('categories', None)
             final_category = self.cleaned_data['categories']
 
@@ -30,7 +31,9 @@ class ProductForm(base_forms.ProductForm):
                 for cate in initial_category:
                     if cate not in final_category:
                         ProductCategory.objects.filter(product = product, category = cate).delete()
-
+            # add plan to produt
+            plan = self.cleaned_data['plan']
+            product.plan.set(plan)
         return product
 
 

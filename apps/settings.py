@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'oscar_custom.catalogue',
     'oscar_custom.dashboard.catalogue',
     'oscar_custom.customer',
+    'oscar_custom.dashboard.users',
 ])
 
 SITE_ID = 1
@@ -191,6 +192,13 @@ OSCAR_DASHBOARD_NAVIGATION = [
                 'url_name': 'dashboard:catalogue-category-list',
             },
         ]
+    },
+    {
+
+        'label': _('Plan'),
+        'icon': 'icon-sitemap',
+        'url_name': 'plan',
+        'access_fn': lambda user, url_name, url_args, url_kwargs: user.is_staff,
     },
     {
         'label': _('Customers'),
